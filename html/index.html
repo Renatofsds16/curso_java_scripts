@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio HTML</title>
+    <style>
+        #conteudo {
+            padding: 60px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercicio HTML</h1>
+    </header>
+    <nav>
+        <a href web-moderno="exercicios/teste.html">00 - Teste 1</a> |
+        <a href web-moderno="exercicios/teste1.html">01 - Texto 2</a> |
+        <a href web-moderno="exercicios/teste2.html">02 - Texto 3</a> |
+        <a href web-moderno="exercicios/listas.html">03 - Lista</a> |
+        <a href web-moderno="exercicios/listaAninhadas.html"> |
+            04 - Lista aninhadas
+        </a> | 
+        <a href web-moderno="exercicios/exercicio.html">
+            05 - exercicio
+        </a>|
+        <a href web-moderno="exercicios/links.html">
+            06 - links
+        </a>
+        |
+        <a href web-moderno="exercicios/tabela.html">
+            07 - tabela
+        </a>
+        |
+        <a href web-moderno="exercicios/form/form.html">
+            08 - formulario
+        </a>|
+        <a href web-moderno="exercicios/imagens.html">
+            09 - imagens
+        </a>
+        
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        <h3>curso de web moderno</h3>
+    </footer>
+    <script>
+        document.querySelectorAll('[web-moderno]').forEach((link)=>{
+            const conteudo = document.getElementById('conteudo')
+            link.onclick  = function (e){
+                e.preventDefault()
+                
+                fetch(link.getAttribute('web-moderno'))
+                .then((resposta => resposta.text()))
+                .then(html => conteudo.innerHTML = html)
+            }}
+        )
+
+    </script>
+    
+</body>
+</html>
